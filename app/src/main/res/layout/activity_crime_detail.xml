@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CrimeDetailActivity">
+    tools:context=".controller.activity.CrimeDetailActivity">
 
     <!--static fragment: -->
     <!--<fragment
         android:id="@+id/fragment"
-        android:name="com.example.criminalintent.CrimeDetailFragment"
+        android:name="com.example.criminalintent.controller.fragment.CrimeDetailFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />-->
 

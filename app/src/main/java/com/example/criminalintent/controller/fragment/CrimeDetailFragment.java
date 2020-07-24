@@ -1,4 +1,4 @@
-package com.example.criminalintent;
+package com.example.criminalintent.controller.fragment;
 
 import android.os.Bundle;
 
@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.example.criminalintent.R;
 import com.example.criminalintent.model.Crime;
 
 public class CrimeDetailFragment extends Fragment {
