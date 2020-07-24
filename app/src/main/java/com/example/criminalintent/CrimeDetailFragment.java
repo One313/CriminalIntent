@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class CrimeDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mCrime = new Crime();
+        mCrime = new Crime("GTA",true);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class CrimeDetailFragment extends Fragment {
         mCheckBoxSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mCrime.setSolved(isChecked);
+                mCrime.setSolved(isChecked);   Log.d("CDF",mCrime.toString());
             }
         });
 
@@ -64,7 +65,7 @@ public class CrimeDetailFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mCrime.setTitle(s.toString());
+                mCrime.setTitle(s.toString());   Log.d("CDF",mCrime.toString());
             }
 
             @Override
@@ -75,7 +76,9 @@ public class CrimeDetailFragment extends Fragment {
     }
 
     private void initViews() {
+        mEditTextCrimeTitle.setText(mCrime.getTitle());
         mButtonDate.setText(mCrime.getDate().toString());
+        mCheckBoxSolved.setChecked(mCrime.isSolved());
         mButtonDate.setEnabled(false);
     }
 

@@ -41,4 +41,20 @@ public class Crime {
         mId = UUID.randomUUID();
         mDate = new Date();
     }
+
+    public Crime(String title, boolean solved) {
+        this();
+        mTitle = title;
+        mSolved = solved;
+    }
+
+    @Override
+    public String toString() {
+        return "Crime{" +
+                "mId=" + mId +
+                ", mTitle='" + mTitle + '\'' +
+                ", mDate=" + mDate +
+                ", mSolved=" + mSolved +
+                '}';
+    }
 }
