@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +46,14 @@ public class CrimeListFragment extends Fragment {
         findViews(view);
         // positioning in recycler view
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        /*// in LinearLayout Horizontal
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(
+                getActivity(),
+                RecyclerView.HORIZONTAL, false));*/
+
+        /*// in GridLayout with 2 column
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));*/
 
         updateUI();
 
