@@ -2,6 +2,7 @@ package com.example.criminalintent.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Crime implements Serializable {
@@ -57,5 +58,18 @@ public class Crime implements Serializable {
                 ", mDate=" + mDate +
                 ", mSolved=" + mSolved +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Crime crime = (Crime) o;
+        return mId.equals(crime.mId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mId);
     }
 }
