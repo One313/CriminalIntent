@@ -2,6 +2,7 @@ package com.example.criminalintent.controller.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -20,6 +21,7 @@ import com.example.criminalintent.model.Crime;
 
 public class CrimeDetailFragment extends Fragment {
 
+    public static final String ARGS_BUNDLE_CRIME = "com.example.criminalintent.controller.crime";
     private EditText mEditTextCrimeTitle;
     private Button mButtonDate;
     private CheckBox mCheckBoxSolved;
@@ -36,7 +38,9 @@ public class CrimeDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mCrime = new Crime("GTA",true);
+        if (savedInstanceState == null)
+            mCrime = new Crime("GTA", true);
+        else mCrime = (Crime) savedInstanceState.getSerializable(ARGS_BUNDLE_CRIME);
     }
 
     @Override
@@ -50,11 +54,19 @@ public class CrimeDetailFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putSerializable(ARGS_BUNDLE_CRIME, mCrime);
+    }
+
     private void setListeners() {
         mCheckBoxSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mCrime.setSolved(isChecked);   Log.d("CDF",mCrime.toString());
+                mCrime.setSolved(isChecked);
+                Log.d("CDF", mCrime.toString());
             }
         });
 
@@ -66,7 +78,8 @@ public class CrimeDetailFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mCrime.setTitle(s.toString());   Log.d("CDF",mCrime.toString());
+                mCrime.setTitle(s.toString());
+                Log.d("CDF", mCrime.toString());
             }
 
             @Override
