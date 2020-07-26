@@ -4,14 +4,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.criminalintent.R;
@@ -73,17 +72,20 @@ public class CrimeListFragment extends Fragment {
 
         private TextView mTextViewTitle;
         private TextView mTextViewDate;
+        private ImageView mImageViewSolved;
 
         public CrimeHolder(@NonNull View itemView) {
             super(itemView);
 
             mTextViewTitle = itemView.findViewById(R.id.text_view_title_list_row);
             mTextViewDate = itemView.findViewById(R.id.text_view_date_list_row);
+            mImageViewSolved = itemView.findViewById(R.id.image_view_solved_list_row);
         }
 
         public void bindCrime(Crime crime) {
             mTextViewTitle.setText(crime.getTitle());
             mTextViewDate.setText(crime.getDate().toString());
+            mImageViewSolved.setVisibility(crime.isSolved() ? View.VISIBLE : View.INVISIBLE);
         }
     }
 
