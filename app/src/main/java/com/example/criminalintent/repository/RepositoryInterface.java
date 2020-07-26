@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface RepositoryInterface<E> {
     List<E> getAll();  //R
 
-    Crime get(UUID uuid);
+    E get(UUID uuid);
 
     void update(E e);  //U
 
