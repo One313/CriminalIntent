@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import com.example.criminalintent.R;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
+
     public abstract Fragment createFragment();
 
     @Override
