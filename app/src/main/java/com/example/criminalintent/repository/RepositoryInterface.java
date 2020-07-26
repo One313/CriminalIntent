@@ -10,6 +10,8 @@ public interface RepositoryInterface<E> {
 
     E get(UUID uuid);
 
+    void set(List<E> elements);
+
     void update(E e);  //U
 
     void delete(E e); //D

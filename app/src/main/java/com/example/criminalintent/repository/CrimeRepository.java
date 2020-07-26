@@ -58,7 +58,8 @@ public class CrimeRepository implements RepositoryInterface<Crime> {
         mCrimes.addAll(crimes);
     }
 
-    public void setCrimes(List<Crime> crimes) {
+    @Override
+    public void set(List<Crime> crimes) {
         mCrimes = crimes;
     }
 
