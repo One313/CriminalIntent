@@ -17,16 +17,22 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.example.criminalintent.R;
+import com.example.criminalintent.controller.activity.CrimeDetailActivity;
 import com.example.criminalintent.model.Crime;
+import com.example.criminalintent.repository.CrimeRepository;
+import com.example.criminalintent.repository.RepositoryInterface;
+
+import java.util.UUID;
 
 public class CrimeDetailFragment extends Fragment {
+
+    private Crime mCrime;
+    private RepositoryInterface mRepository;
 
     public static final String ARGS_BUNDLE_CRIME = "com.example.criminalintent.controller.crime";
     private EditText mEditTextCrimeTitle;
     private Button mButtonDate;
     private CheckBox mCheckBoxSolved;
-
-    private Crime mCrime;
 
 
     public CrimeDetailFragment() {
@@ -38,9 +44,13 @@ public class CrimeDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState == null)
+       /* if (savedInstanceState == null)
             mCrime = new Crime("GTA", true);
-        else mCrime = (Crime) savedInstanceState.getSerializable(ARGS_BUNDLE_CRIME);
+        else mCrime = (Crime) savedInstanceState.getSerializable(ARGS_BUNDLE_CRIME);*/
+
+        mRepository = CrimeRepository.getInstance();
+        UUID id = (UUID) getActivity().getIntent().getSerializableExtra(CrimeDetailActivity.CRIME_ID);
+        mCrime = mRepository.getCrime(id);
     }
 
     @Override

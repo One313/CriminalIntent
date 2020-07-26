@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.UUID;
 
 public interface RepositoryInterface {
-    List<Crime> getCrimes();
+    List<Crime> getCrimes();  //R
     Crime getCrime(UUID uuid);
-    void updateCrime(Crime crime);
-    void deleteCrime(Crime crime);
+    void updateCrime(Crime crime);  //U
+    void deleteCrime(Crime crime); //D
+    void insertCrime(Crime crime);  //C
+    void insertCrimes(List<Crime> crimes);
 }

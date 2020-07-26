@@ -48,6 +48,16 @@ public class CrimeRepository implements RepositoryInterface {
         getCrimes().remove(crime);
     }
 
+    @Override
+    public void insertCrime(Crime crime) {
+        mCrimes.add(crime);
+    }
+
+    @Override
+    public void insertCrimes(List<Crime> crimes) {
+        mCrimes.addAll(crimes);
+    }
+
     public void setCrimes(List<Crime> crimes) {
         mCrimes = crimes;
     }
