@@ -5,7 +5,6 @@ import android.content.Intent;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.criminalintent.controller.activity.SingleFragmentActivity;
 import com.example.criminalintent.controller.fragment.CrimeListFragment;
 
 public class CrimeListActivity extends SingleFragmentActivity {

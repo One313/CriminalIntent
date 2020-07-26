@@ -50,7 +50,7 @@ public class CrimeDetailFragment extends Fragment {
 
         mRepository = CrimeRepository.getInstance();
         UUID id = (UUID) getActivity().getIntent().getSerializableExtra(CrimeDetailActivity.CRIME_ID);
-        mCrime = mRepository.getCrime(id);
+        mCrime = mRepository.get(id);
     }
 
     @Override

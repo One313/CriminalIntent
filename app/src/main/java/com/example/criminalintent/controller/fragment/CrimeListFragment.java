@@ -26,7 +26,7 @@ import java.util.List;
 public class CrimeListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
-    private RepositoryInterface mRepository;
+    private RepositoryInterface<Crime> mRepository;
 
     public CrimeListFragment() {
         // Required empty public constructor
@@ -63,7 +63,7 @@ public class CrimeListFragment extends Fragment {
     }
 
     private void updateUI() {
-        CrimeAdapter adapter = new CrimeAdapter(mRepository.getCrimes());
+        CrimeAdapter adapter = new CrimeAdapter(mRepository.getAll());
         mRecyclerView.setAdapter(adapter);
     }
 

@@ -5,11 +5,16 @@ import com.example.criminalintent.model.Crime;
 import java.util.List;
 import java.util.UUID;
 
-public interface RepositoryInterface {
-    List<Crime> getCrimes();  //R
-    Crime getCrime(UUID uuid);
-    void updateCrime(Crime crime);  //U
-    void deleteCrime(Crime crime); //D
-    void insertCrime(Crime crime);  //C
-    void insertCrimes(List<Crime> crimes);
+public interface RepositoryInterface<E> {
+    List<E> getAll();  //R
+
+    Crime get(UUID uuid);
+
+    void update(E e);  //U
+
+    void delete(E e); //D
+
+    void insert(E e);  //C
+
+    void insertAll(List<E> elements);
 }
