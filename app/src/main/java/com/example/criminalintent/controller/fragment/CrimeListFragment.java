@@ -25,6 +25,8 @@ import java.util.List;
 
 public class CrimeListFragment extends Fragment {
 
+    private CrimeAdapter mAdapter;
+
     public static CrimeListFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -33,7 +35,6 @@ public class CrimeListFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
 
 
     private RecyclerView mRecyclerView;
@@ -73,9 +74,19 @@ public class CrimeListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        updateUI();
+    }
+
     private void updateUI() {
-        CrimeAdapter adapter = new CrimeAdapter(mRepository.getAll());
-        mRecyclerView.setAdapter(adapter);
+        if (mAdapter == null) {
+            mAdapter = new CrimeAdapter(mRepository.getAll());
+            mRecyclerView.setAdapter(mAdapter);
+        } else
+            mAdapter.notifyDataSetChanged();
     }
 
     private void findViews(View view) {

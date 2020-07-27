@@ -77,6 +77,13 @@ public class CrimeDetailFragment extends Fragment {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+
+        updateCrime();
+    }
+
+    @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -122,5 +129,9 @@ public class CrimeDetailFragment extends Fragment {
         mEditTextCrimeTitle = view.findViewById(R.id.crime_title);
         mButtonDate = view.findViewById(R.id.crime_date);
         mCheckBoxSolved = view.findViewById(R.id.crime_solved);
+    }
+
+    private void updateCrime() {
+        mRepository.update(mCrime);
     }
 }
