@@ -25,6 +25,17 @@ import java.util.List;
 
 public class CrimeListFragment extends Fragment {
 
+    public static CrimeListFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        CrimeListFragment fragment = new CrimeListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+
     private RecyclerView mRecyclerView;
     private RepositoryInterface<Crime> mRepository;
 

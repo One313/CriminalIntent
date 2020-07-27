@@ -26,10 +26,21 @@ import java.util.UUID;
 
 public class CrimeDetailFragment extends Fragment {
 
+    public static final String ARGS_BUNDLE_CRIME = "com.example.criminalintent.controller.crime";
+    public static final String ARGS_CRIME_ID = "com.example.criminalintent.controller.fragment.crimeId";
+
+    public static CrimeDetailFragment newInstance(UUID crimeId) {
+
+        Bundle args = new Bundle();
+        args.putSerializable(ARGS_CRIME_ID, crimeId);
+        CrimeDetailFragment fragment = new CrimeDetailFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     private Crime mCrime;
     private RepositoryInterface<Crime> mRepository;
 
-    public static final String ARGS_BUNDLE_CRIME = "com.example.criminalintent.controller.crime";
     private EditText mEditTextCrimeTitle;
     private Button mButtonDate;
     private CheckBox mCheckBoxSolved;
