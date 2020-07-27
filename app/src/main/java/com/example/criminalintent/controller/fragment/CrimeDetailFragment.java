@@ -27,7 +27,7 @@ import java.util.UUID;
 public class CrimeDetailFragment extends Fragment {
 
     private Crime mCrime;
-    private RepositoryInterface mRepository;
+    private RepositoryInterface<Crime> mRepository;
 
     public static final String ARGS_BUNDLE_CRIME = "com.example.criminalintent.controller.crime";
     private EditText mEditTextCrimeTitle;
@@ -49,8 +49,9 @@ public class CrimeDetailFragment extends Fragment {
         else mCrime = (Crime) savedInstanceState.getSerializable(ARGS_BUNDLE_CRIME);*/
 
         mRepository = CrimeRepository.getInstance();
-        UUID id = (UUID) getActivity().getIntent().getSerializableExtra(CrimeDetailActivity.CRIME_ID);
-        mCrime = mRepository.get(id);
+       /* UUID id = (UUID) getActivity().getIntent().getSerializableExtra(CrimeDetailActivity.EXTRA_CRIME_ID);*/
+        UUID crimeId = (UUID) getArguments().getSerializable(CrimeDetailActivity.ARG_CRIME_ID);
+        mCrime = mRepository.get(crimeId);
     }
 
     @Override

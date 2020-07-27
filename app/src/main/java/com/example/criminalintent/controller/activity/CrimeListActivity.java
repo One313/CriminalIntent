@@ -2,6 +2,7 @@ package com.example.criminalintent.controller.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
@@ -15,8 +16,17 @@ public class CrimeListActivity extends SingleFragmentActivity {
         return intent;
     }
 
+    public static CrimeListFragment newInstance(/*Code*/) {
+
+        Bundle args = new Bundle();
+        // Code
+        CrimeListFragment fragment = new CrimeListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public Fragment createFragment() {
-        return new CrimeListFragment();
+        return newInstance();
     }
 }
